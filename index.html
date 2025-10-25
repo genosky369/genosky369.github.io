@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기획자 포트폴리오</title>
+    <title>게임 캐스터 포트폴리오</title>
     <style>
         * {
             margin: 0;
@@ -12,20 +12,20 @@
         }
 
         body {
-            font-family: 'Segoe UI', Toto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background: #ffffff;
             color: #333;
             overflow-x: hidden;
         }
 
-        /* 네비게이션 메뉴 */
+        /* 네비게이션 */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             z-index: 1000;
             backdrop-filter: blur(10px);
         }
@@ -33,7 +33,7 @@
         nav ul {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 50px;
             list-style: none;
         }
 
@@ -41,399 +41,362 @@
             text-decoration: none;
             color: #333;
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
         }
 
         nav a:hover {
-            color: #667eea;
-        }
-
-        /* 섹션 공통 스타일 */
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
+            color: #6366f1;
         }
 
         /* 메인 소개 섹션 */
         #intro {
-            text-align: center;
-            color: white;
-        }
-
-        .intro-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .intro-content p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: backwards;
-        }
-
-        .intro-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.4s;
-            animation-fill-mode: backwards;
-        }
-
-        /* 자기소개 섹션 */
-        #about {
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .profile-image {
-            width: 100%;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8rem;
-            color: white;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            background: #f9fafb;
+            position: relative;
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #667eea;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .skills {
+        .intro-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            padding: 120px 20px 60px 20px;
         }
 
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+        .profile-image-container {
+            flex: 0 0 300px;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            background: #e5e7eb;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image::before {
+            content: '프로필 사진';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.1rem;
+            color: #9ca3af;
+        }
+
+        .intro-text {
+            flex: 1;
+        }
+
+        .intro-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: #111827;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .intro-text .role {
+            font-size: 1.3rem;
+            color: #6366f1;
+            margin-bottom: 20px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            transition: transform 0.3s;
         }
 
-        .skill-tag:hover {
-            transform: translateY(-5px);
+        .intro-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #6b7280;
         }
 
         /* 경력 섹션 */
         #career {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            padding: 80px 20px;
+            background: #ffffff;
         }
 
-        .career-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+        .section-title {
             text-align: center;
+            font-size: 2rem;
+            color: #111827;
+            margin-bottom: 40px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
 
-        .timeline {
-            position: relative;
-            padding-left: 50px;
+        .career-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: rgba(255, 255, 255, 0.3);
+        .career-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 28px 35px;
+            transition: all 0.3s;
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s;
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-color: #6366f1;
         }
 
-        .timeline-item:hover {
-            transform: translateX(10px);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -62px;
-            top: 30px;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
-        }
-
-        .timeline-item h3 {
-            font-size: 1.8rem;
+        .career-card h3 {
+            font-size: 1.3rem;
+            color: #111827;
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
-        .timeline-item .period {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 15px;
-        }
-
-        .timeline-item p {
-            font-size: 1.1rem;
+        .career-card p {
+            font-size: 0.95rem;
             line-height: 1.6;
+            color: #6b7280;
         }
 
         /* 연락처 섹션 */
         #contact {
-            background: white;
-        }
-
-        .contact-content {
-            text-align: center;
-        }
-
-        .contact-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #667eea;
-        }
-
-        .contact-content p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .contact-links {
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            padding: 80px 20px;
+            background: #f9fafb;
         }
 
-        .contact-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
+        .contact-container {
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .contact-container h2 {
+            font-size: 2rem;
+            color: #111827;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-container p {
             font-size: 1.1rem;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            color: #6b7280;
+            margin-bottom: 35px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px 25px;
             transition: all 0.3s;
         }
 
-        .contact-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        .contact-item:hover {
+            border-color: #6366f1;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
         }
 
-        /* 애니메이션 */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .contact-item strong {
+            color: #111827;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            .intro-content h1 {
+        .contact-item a {
+            color: #6366f1;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #4f46e5;
+        }
+
+        /* 반응형 */
+        @media (max-width: 1024px) {
+            .intro-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .profile-image-container {
+                flex: none;
+            }
+
+            .intro-text h1 {
                 font-size: 2.5rem;
             }
+        }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+        @media (max-width: 768px) {
+            .profile-image {
+                width: 280px;
+                height: 360px;
             }
 
-            .profile-image {
-                font-size: 5rem;
+            .intro-text h1 {
+                font-size: 2rem;
+            }
+
+            .intro-text .role {
+                font-size: 1.3rem;
             }
 
             nav ul {
-                gap: 20px;
+                gap: 25px;
             }
 
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
+            .section-title {
+                font-size: 2rem;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 스크롤 애니메이션 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- 네비게이션 메뉴 -->
+    <!-- 네비게이션 -->
     <nav>
         <ul>
-            <li><a href="#intro">홈</a></li>
-            <li><a href="#about">소개</a></li>
-            <li><a href="#career">경력</a></li>
-            <li><a href="#contact">연락처</a></li>
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- 메인 소개 섹션 -->
+    <!-- 메인 소개 -->
     <section id="intro">
-        <div class="intro-content">
-            <h1>안녕하세요! 👋</h1>
-            <p>창의적인 문제 해결을 즐기는</p>
-            <p class="intro-subtitle"><strong>게임 기획자</strong> 홍길동입니다</p>
-        </div>
-    </section>
-
-    <!-- 자기소개 섹션 -->
-    <section id="about">
-        <div class="container">
-            <div class="about-content">
+        <div class="intro-container">
+            <div class="profile-image-container">
                 <div class="profile-image">
-                    🎮
+                    <img src="profile.jpg" alt="프로필" onerror="this.style.display='none'">
                 </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>
-                        사용자 경험을 최우선으로 생각하는 기획자입니다. 
-                        데이터 기반의 의사결정과 창의적인 아이디어를 결합하여 
-                        플레이어들에게 재미있고 의미 있는 경험을 제공하는 것을 목표로 합니다.
-                    </p>
-                    <p>
-                        3년간 다양한 장르의 게임 프로젝트에 참여하며 
-                        기획, 밸런싱, 콘텐츠 디자인 경험을 쌓았습니다.
-                    </p>
-                    <div class="skills">
-                        <span class="skill-tag">게임 시스템 기획</span>
-                        <span class="skill-tag">콘텐츠 기획</span>
-                        <span class="skill-tag">밸런싱</span>
-                        <span class="skill-tag">데이터 분석</span>
-                        <span class="skill-tag">문서화</span>
-                    </div>
-                </div>
+            </div>
+            <div class="intro-text">
+                <h1>게임 캐스터</h1>
+                <div class="role">열정과 전문성으로 게임을 전달합니다</div>
+                <p>
+                    이스포츠의 생생한 현장을 전달하는 게임 캐스터입니다.<br>
+                    이터널 리턴, 섀도우버스, 각종 대학리그 등<br>
+                    다양한 게임과 대회에서 활동하고 있습니다.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- 경력 섹션 -->
+    <!-- 경력 -->
     <section id="career">
-        <div class="container">
-            <div class="career-content">
-                <h2>Career</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>○○게임즈 - 시니어 게임 기획자</h3>
-                        <div class="period">2022.03 - 현재</div>
-                        <p>
-                            모바일 RPG 프로젝트의 전투 시스템 및 캐릭터 성장 콘텐츠 기획 담당.
-                            신규 시스템 도입으로 유저 리텐션 25% 향상 달성.
-                        </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>△△스튜디오 - 게임 기획자</h3>
-                        <div class="period">2020.06 - 2022.02</div>
-                        <p>
-                            캐주얼 퍼즐 게임의 레벨 디자인 및 이벤트 기획.
-                            100개 이상의 레벨 콘텐츠 제작 및 라이브 서비스 운영.
-                        </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>□□대학교 - 게임학과 졸업</h3>
-                        <div class="period">2016.03 - 2020.02</div>
-                        <p>
-                            게임 디자인 및 개발 이론 학습.
-                            졸업 프로젝트로 인디 게임 개발 및 스팀 출시 경험.
-                        </p>
-                    </div>
-                </div>
+        <h2 class="section-title">Career</h2>
+        <div class="career-grid">
+            <div class="career-card fade-in">
+                <h3>🎮 이터널 리턴</h3>
+                <p>
+                    한국을 대표하는 배틀로얄 게임 이터널 리턴의 공식 캐스터로 활동하며,
+                    긴장감 넘치는 경기 상황을 시청자들에게 전달했습니다.
+                </p>
+            </div>
+            <div class="career-card fade-in">
+                <h3>🃏 섀도우버스</h3>
+                <p>
+                    전략적인 카드 게임 섀도우버스의 각종 대회에서 캐스팅을 진행하며,
+                    복잡한 게임 메커니즘을 알기 쉽게 설명했습니다.
+                </p>
+            </div>
+            <div class="career-card fade-in">
+                <h3>🏆 각종 대학리그</h3>
+                <p>
+                    대학 이스포츠 리그의 캐스터로 참여하여 젊은 선수들의 열정과
+                    경기를 많은 시청자들에게 소개했습니다.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- 연락처 섹션 -->
+    <!-- 연락처 -->
     <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2>Contact</h2>
-                <p>함께 일하고 싶으시다면 언제든지 연락주세요!</p>
-                <div class="contact-links">
-                    <a href="mailto:your.email@example.com" class="contact-btn">📧 이메일</a>
-                    <a href="https://github.com/yourusername" class="contact-btn" target="_blank">💻 GitHub</a>
-                    <a href="https://linkedin.com/in/yourusername" class="contact-btn" target="_blank">💼 LinkedIn</a>
+        <div class="contact-container">
+            <h2>Contact</h2>
+            <p>함께 일하고 싶으시다면 언제든지 연락주세요!</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>📱 전화번호</strong>
+                    <a href="tel:010-9443-1051">010-9443-1051</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📷 Instagram</strong>
+                    <a href="https://www.instagram.com/neo_nectar_" target="_blank">@neo_nectar_</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📧 Email</strong>
+                    <a href="mailto:bjason1030@gmail.com">bjason1030@gmail.com</a>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // 부드러운 스크롤 효과
+        // 부드러운 스크롤
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
 
         // 스크롤 애니메이션
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'all 0.6s ease';
-            observer.observe(item);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
