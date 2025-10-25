@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기획자 포트폴리오</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Toto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* 네비게이션 메뉴 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* 섹션 공통 스타일 */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* 메인 소개 섹션 */
+        #intro {
+            text-align: center;
+            color: white;
+        }
+
+        .intro-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .intro-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: backwards;
+        }
+
+        .intro-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: backwards;
+        }
+
+        /* 자기소개 섹션 */
+        #about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 경력 섹션 */
+        #career {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .career-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -62px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item .period {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* 연락처 섹션 */
+        #contact {
+            background: white;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .intro-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-image {
+                font-size: 5rem;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 메뉴 -->
+    <nav>
+        <ul>
+            <li><a href="#intro">홈</a></li>
+            <li><a href="#about">소개</a></li>
+            <li><a href="#career">경력</a></li>
+            <li><a href="#contact">연락처</a></li>
+        </ul>
+    </nav>
+
+    <!-- 메인 소개 섹션 -->
+    <section id="intro">
+        <div class="intro-content">
+            <h1>안녕하세요! 👋</h1>
+            <p>창의적인 문제 해결을 즐기는</p>
+            <p class="intro-subtitle"><strong>게임 기획자</strong> 홍길동입니다</p>
+        </div>
+    </section>
+
+    <!-- 자기소개 섹션 -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="profile-image">
+                    🎮
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>
+                        사용자 경험을 최우선으로 생각하는 기획자입니다. 
+                        데이터 기반의 의사결정과 창의적인 아이디어를 결합하여 
+                        플레이어들에게 재미있고 의미 있는 경험을 제공하는 것을 목표로 합니다.
+                    </p>
+                    <p>
+                        3년간 다양한 장르의 게임 프로젝트에 참여하며 
+                        기획, 밸런싱, 콘텐츠 디자인 경험을 쌓았습니다.
+                    </p>
+                    <div class="skills">
+                        <span class="skill-tag">게임 시스템 기획</span>
+                        <span class="skill-tag">콘텐츠 기획</span>
+                        <span class="skill-tag">밸런싱</span>
+                        <span class="skill-tag">데이터 분석</span>
+                        <span class="skill-tag">문서화</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 경력 섹션 -->
+    <section id="career">
+        <div class="container">
+            <div class="career-content">
+                <h2>Career</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>○○게임즈 - 시니어 게임 기획자</h3>
+                        <div class="period">2022.03 - 현재</div>
+                        <p>
+                            모바일 RPG 프로젝트의 전투 시스템 및 캐릭터 성장 콘텐츠 기획 담당.
+                            신규 시스템 도입으로 유저 리텐션 25% 향상 달성.
+                        </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>△△스튜디오 - 게임 기획자</h3>
+                        <div class="period">2020.06 - 2022.02</div>
+                        <p>
+                            캐주얼 퍼즐 게임의 레벨 디자인 및 이벤트 기획.
+                            100개 이상의 레벨 콘텐츠 제작 및 라이브 서비스 운영.
+                        </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>□□대학교 - 게임학과 졸업</h3>
+                        <div class="period">2016.03 - 2020.02</div>
+                        <p>
+                            게임 디자인 및 개발 이론 학습.
+                            졸업 프로젝트로 인디 게임 개발 및 스팀 출시 경험.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Contact</h2>
+                <p>함께 일하고 싶으시다면 언제든지 연락주세요!</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-btn">📧 이메일</a>
+                    <a href="https://github.com/yourusername" class="contact-btn" target="_blank">💻 GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" class="contact-btn" target="_blank">💼 LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 부드러운 스크롤 효과
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'all 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
