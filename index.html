@@ -171,6 +171,39 @@
             color: #6b7280;
         }
 
+        .youtube-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            color: #6366f1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .youtube-link:hover {
+            color: #4f46e5;
+            transform: translateX(5px);
+        }
+
+        .youtube-icon {
+            width: 24px;
+            height: 24px;
+            background: #ff0000;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .youtube-link:hover .youtube-icon {
+            transform: scale(1.1);
+        }
+
         /* 연락처 섹션 */
         #contact {
             display: flex;
@@ -315,10 +348,9 @@
                 </div>
             </div>
             <div class="intro-text">
-                <h1>게임 캐스터</h1>
-                <div class="role">열정과 전문성으로 게임을 전달합니다</div>
+                <h1>게임 캐스터 방재혁</h1>
+                <div class="role">열정과 신뢰로 경기를 전달합니다</div>
                 <p>
-                    이스포츠의 생생한 현장을 전달하는 게임 캐스터입니다.<br>
                     이터널 리턴, 섀도우버스, 각종 대학리그 등<br>
                     다양한 게임과 대회에서 활동하고 있습니다.
                 </p>
@@ -332,17 +364,19 @@
         <div class="career-grid">
             <div class="career-card fade-in">
                 <h3>🎮 이터널 리턴</h3>
-                <p>
-                    한국을 대표하는 배틀로얄 게임 이터널 리턴의 공식 캐스터로 활동하며,
-                    긴장감 넘치는 경기 상황을 시청자들에게 전달했습니다.
-                </p>
+                <p>이터널 리턴 프로리그 시즌2400 캐스터</p>
+                <a href="https://www.youtube.com/watch?v=gzvGW2-6skg" target="_blank" class="youtube-link">
+                    <span class="youtube-icon">▶</span>
+                    유튜브에서 보기
+                </a>
             </div>
             <div class="career-card fade-in">
                 <h3>🃏 섀도우버스</h3>
-                <p>
-                    전략적인 카드 게임 섀도우버스의 각종 대회에서 캐스팅을 진행하며,
-                    복잡한 게임 메커니즘을 알기 쉽게 설명했습니다.
-                </p>
+                <p>섀도우버스 RAGE 한국 대표 선발전 캐스터</p>
+                <a href="https://www.youtube.com/watch?v=gzvGW2-6skg" target="_blank" class="youtube-link">
+                    <span class="youtube-icon">▶</span>
+                    유튜브에서 보기
+                </a>
             </div>
             <div class="career-card fade-in">
                 <h3>🏆 각종 대학리그</h3>
